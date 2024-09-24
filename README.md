@@ -344,3 +344,8 @@ Re-Evaluating the results on the validation-set:
 Download Fine tuned model:https://drive.google.com/file/d/1GLhUpK1yzNEmeqQlWTsJkxiuuU-8VJUO/view
 
 **the test.ipynb part of the code is also present in the last part of the Final_Dino.ipynb
+
+
+CREDENTIALS:
+
+Resume: https://drive.google.com/file/d/1sjrSAjvxKqdOjJGeSZP8mwQJBM5K7ZbT/view?usp=sharing
