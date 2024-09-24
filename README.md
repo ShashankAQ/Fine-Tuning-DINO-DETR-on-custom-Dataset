@@ -256,51 +256,7 @@ Or run with **multi-processes on a single node**:
 ```sh
 # for DINO-4scale: 49.0
 bash scripts/DINO_train_dist.sh /path/to/your/COCODIR
-```-my entire code was executed on google colab on a T4 GPU
--the folder called COCODIR is bascially the dataset folder according to the specified foramt 
--the create_dataset.pynb has to be run before evaluation and testing in order to convert the dataset into the required format 
--the files get created in the COCODIR folder 
-
--necessary for the datset and the annotations to be in the same folder
-
--create a folder called COCODIR after cloing
-
--run the evaluation script
-
-format:
-coco_path = "/content/DINO/COCODIR"   //Direcotry path of the COCDIR file
-
-checkpoint_path = "/content/drive/MyDrive/checkpoint0011_4scale.pth" // path to the checkpoint
-
-eval_script_path = "/content/DINO/scripts/DINO_eval.sh" // evaluation script path
-
-!bash {eval_script_path} {coco_path} {checkpoint_path}
-
-
--For visualization and analysis reffered-https://github.com/IDEA-Research/DINO/blob/main/inference_and_visualization.ipynb
-
--
-
-FINE-TUNING the pre-trained model
-
--Fine-tuned the model with 12 epoch setting,DINO-4scale ,Backbone -R50 check point-https://drive.google.com/drive/folders/1qD5m1NmK0kjE5hh-G17XUX751WsEG-h_?usp=sharing
-
--format:
-
-!bash /content/DINO/scripts/DINO_train.sh /content/DINO/COCODIR \
-
---pretrain_model_path /content/drive/MyDrive/checkpoint0011_4scale.pth \
-
---finetune_ignore label_enc.weight class_embed
-
-
--after the process the model gets saved in the -DINO/logs/DINO/R50-MS4
-
--path to the Fine-tuned pretrained model link-https://drive.google.com/file/d/1GLhUpK1yzNEmeqQlWTsJkxiuuU-8VJUO/view?usp=sharing
-
-
-
-
+```
 
 </details>
 
@@ -320,3 +276,56 @@ To **leverage our pre-trained models** for model fine-tuning, we suggest add two
 
 
 </details>
+DINO Model Fine-Tuning and Evaluation
+This repository provides instructions for fine-tuning the pre-trained DINO model using a dataset in COCO format. It includes steps for dataset preparation, evaluation, and fine-tuning.
+
+Prerequisites
+Google Colab
+GPU support (T4 GPU recommended)
+Access to the dataset in COCO format
+Setup Instructions
+Clone the Repository:
+
+bash
+Copy code
+git clone https://github.com/IDEA-Research/DINO.git
+cd DINO
+Create Dataset Directory: Create a folder called COCODIR in the cloned repository. This folder will contain your dataset and annotations.
+
+bash
+Copy code
+mkdir COCODIR
+Dataset Preparation: Before running evaluations and testing, the dataset must be converted into the required format using the create_dataset.ipynb notebook. Ensure the dataset and annotations are in the same folder.
+
+Run Evaluation Script: After preparing the dataset, you can evaluate the model using the following script. Make sure to set the appropriate paths for coco_path and checkpoint_path.
+
+python
+Copy code
+# Set paths
+coco_path = "/content/DINO/COCODIR"  # Directory path of the COCODIR folder
+checkpoint_path = "/content/drive/MyDrive/checkpoint0011_4scale.pth"  # Path to the checkpoint
+eval_script_path = "/content/DINO/scripts/DINO_eval.sh"  # Evaluation script path
+
+# Execute evaluation
+!bash {eval_script_path} {coco_path} {checkpoint_path}
+For visualization and analysis, refer to the following notebook.
+
+Fine-Tuning the Pre-trained Model
+Fine-tune the pre-trained model with the following parameters:
+
+Epochs: 12
+DINO Scale: 4
+Backbone: R50
+Training Command
+Use the following command to fine-tune the model:
+
+bash
+Copy code
+!bash /content/DINO/scripts/DINO_train.sh /content/DINO/COCODIR \
+--pretrain_model_path /content/drive/MyDrive/checkpoint0011_4scale.pth \
+--finetune_ignore label_enc.weight class_embed
+After the training process, the model will be saved in the DINO/logs/DINO/R50-MS4 directory.
+
+Fine-tuned Pre-trained Model
+You can download the fine-tuned pre-trained model from the following link: Fine-tuned Model.
+
