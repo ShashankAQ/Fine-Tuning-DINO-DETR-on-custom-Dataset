@@ -297,7 +297,7 @@ Setup Instructions
    ```
 
 
-2) Create Dataset Directory: Create a folder called COCODIR in the cloned repository. This folder will contain your dataset and annotations
+2) Create Dataset Directory: Create a folder called COCODIR in the cloned repository. This folder will contain your dataset and annotations and also maek sure the dataset folder is present in the same directory(Pedestrian_dataset_for_internship_assignment)
 
 3)Dataset Preparation:  Before running evaluations and testing, the dataset must be converted into the required format  using the Final_Dino.ipynb 
 
@@ -343,4 +343,4 @@ Re-Evaluating the results on the validation-set:
 
 Download Fine tuned model:https://drive.google.com/file/d/1GLhUpK1yzNEmeqQlWTsJkxiuuU-8VJUO/view
 
-
+**the test.ipynb part of the code is also present in the last part of the Final_Dino.ipynb
